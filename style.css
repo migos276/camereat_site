@@ -58,20 +58,53 @@ body {
   border-radius: 20px;
 }
 
-.nav-links {
+.nav-links2 {
   display: flex;
-  gap: 30px;
+  align-items: center;
+  gap: 2rem;
 }
 
-.nav-links a {
-  color: #fff;
+.nav-links2 a {
   text-decoration: none;
-  font-size: 14px;
-  transition: color 0.3s;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+  position: relative;
 }
 
-.nav-links a:hover {
-  color: #ccc;
+.nav-links2 a:hover {
+  color: #ff6b35;
+}
+
+.nav-links2 a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ff6b35;
+  transition: width 0.3s ease;
+}
+
+.nav-links2 a:hover::after {
+  width: 100%;
+}
+
+/* Version responsive */
+@media (max-width: 768px) {
+  .nav-links2 {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .nav-links2 a {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+  }
 }
 
 .nav-right {
@@ -496,13 +529,30 @@ body {
 }
 
 /* Couleurs officielles au hover */
-.social-links-footer a:nth-child(1):hover { background: #1DA1F2; color: #fff; } /* Twitter */
-.social-links-footer a:nth-child(2):hover { background: #1877f2; color: #fff; } /* Facebook */
-.social-links-footer a:nth-child(3):hover { 
-  background: linear-gradient(45deg,#405de6,#5851db,#833ab4,#c13584,#e1306c,#fd1d1d); 
-  color: #fff; 
-} /* Instagram */
-.social-links-footer a:nth-child(4):hover { background: #0a66c2; color: #fff; } /* LinkedIn */
+.social-links-footer a:nth-child(1):hover {
+  background: #1DA1F2;
+  color: #fff;
+}
+
+/* Twitter */
+.social-links-footer a:nth-child(2):hover {
+  background: #1877f2;
+  color: #fff;
+}
+
+/* Facebook */
+.social-links-footer a:nth-child(3):hover {
+  background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+  color: #fff;
+}
+
+/* Instagram */
+.social-links-footer a:nth-child(4):hover {
+  background: #0a66c2;
+  color: #fff;
+}
+
+/* LinkedIn */
 
 .footer-bottom p {
   color: #999;
@@ -518,7 +568,8 @@ body {
     gap: 10px;
   }
 
-  .btn-primary, .btn-secondary {
+  .btn-primary,
+  .btn-secondary {
     padding: 8px 16px;
     font-size: 12px;
   }
