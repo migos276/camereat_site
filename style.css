@@ -241,7 +241,38 @@ body {
   text-align: center;
   filter: blur(0.5px);
 }
+.element-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;           /* centre tout (texte + image) */
+  justify-content: center;
+  gap: 2.5rem;                   /* espace propre entre les éléments */
+  max-width: 1400px;
+  margin: 5rem auto;             /* remplace ton margin-top: -100px moche */
+  padding: 2rem 1.5rem 3rem 1rem; /* haut | droite (+15px environ) | bas | gauche */
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
 
+/* Style de l'image à l'intérieur de .element-section */
+.element-section img {
+  max-width: 100%;               /* responsive obligatoire */
+  height: auto;                  /* garde les proportions */
+  border-radius: 20px;           /* coins arrondis modernes */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* ombre élégante */
+  transition: all 0.4s ease;     /* animation au survol */
+
+  /* Petit décalage supplémentaire à droite uniquement sur l'image */
+  margin-right: -12px;           /* ou margin-left: 12px si tu préfères pousser depuis la gauche */
+  transform: translateX(8px);    /* décalage fin et propre à droite */
+}
+
+/* Effet au survol (bonus pro) */
+.element-section img:hover {
+  transform: translateX(8px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
 .hero-content h1 {
   font-size: 48px;
   line-height: 1.2;
