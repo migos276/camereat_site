@@ -1,6 +1,6 @@
 # CamerEat 🍔
 
-![Logo CamerEat](public/images/camereat.jpeg)
+![Logo CamerEat](public/images/phone.png)
 
 Bienvenue sur le projet **CamerEat**, la vitrine web d'un service de livraison de repas moderne et dynamique. Ce projet a pour but de présenter le service aux utilisateurs, aux futurs restaurants partenaires et aux coursiers.
 
