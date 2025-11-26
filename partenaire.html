@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="public/images/camereat.ico" type="image/x-icon">
+<title>Devenir Partenaire</title>
+<!-- EmailJS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function(){
+emailjs.init("5oZfh586gx_ufv0yk");
+    })();
+</script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+height: 100%;
+font-family: Arial, sans-serif;
+background: #fff;
+color: #000;
+    }
+body {
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 20px;
+position: relative;
+    }
+/* Bouton retour */
+.btn-retour {
+position: fixed;
+top: 30px;
+left: 30px;
+background: #000;
+color: #fff;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: all 0.3s;
+box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+z-index: 1000;
+text-decoration: none;
+border: 3px solid #000;
+    }
+.btn-retour:hover {
+background: #fff;
+color: #000;
+transform: translateX(-5px);
+    }
+.btn-retour svg {
+width: 24px;
+height: 24px;
+    }
+.container {
+max-width: 900px;
+width: 100%;
+background: #fff;
+border: 5px solid #000;
+border-radius: 15px;
+box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+display: flex;
+overflow: hidden;
+    }
+.image-section {
+flex: 1;
+background: url('/public/images/backg.jpg') center/cover;
+min-height: 400px;
+position: relative;
+    }
+.image-section::after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0,0,0,0.2);
+    }
+.form-section {
+flex: 1;
+padding: 40px 35px;
+    }
+.logo {
+width: 120px;
+height: auto;
+margin-bottom: 25px;
+    }
+h1 {
+font-size: 2rem;
+margin-bottom: 10px;
+    }
+p {
+margin-bottom: 25px;
+font-size: 1rem;
+color: #333;
+    }
+label {
+display: block;
+font-weight: bold;
+text-align: left;
+margin: 15px 0 6px;
+font-size: 0.95rem;
+    }
+input, select, textarea {
+width: 100%;
+padding: 12px;
+border: 3px solid #000;
+border-radius: 10px;
+font-size: 1rem;
+    }
+textarea {
+resize: vertical;
+min-height: 90px;
+font-family: Arial, sans-serif;
+    }
+button {
+margin-top: 25px;
+width: 100%;
+background: #000;
+color: #fff;
+padding: 16px;
+border: none;
+border-radius: 10px;
+font-size: 1.3rem;
+font-weight: bold;
+cursor: pointer;
+transition: background 0.3s;
+    }
+button:hover {
+background: #333;
+    }
+.success, .error {
+margin-top: 20px;
+font-size: 1.2rem;
+font-weight: bold;
+display: none;
+    }
+.success { color: #000; }
+.error { color: red; }
+/* Mobile */
+@media (max-width: 768px) {
+.btn-retour {
+top: 20px;
+left: 20px;
+width: 45px;
+height: 45px;
+    }
+.container {
+flex-direction: column;
+    }
+.image-section {
+min-height: 250px;
+    }
+.form-section {
+padding: 30px 25px;
+    }
+h1 { font-size: 1.8rem; }
+    }
+</style>
+</head>
+<body>
+<!-- Bouton Retour à l'accueil -->
+<a href="/" class="btn-retour" title="Retour à l'accueil">
+<svg fill="currentColor" viewBox="0 0 24 24">
+<path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg>
+</a>
+
+<div class="container">
+<div class="image-section"></div>
+<div class="form-section">
+<img src="public/images/camereat.jpeg" alt="Logo CamerTeat" class="logo">
+<h1>Devenir Partenaire</h1>
+<p>Remplis le formulaire, nous te recontactons très vite !</p>
+<form id="partenaireForm">
+<label>Nom complet *</label>
+<input type="text" name="nom" id="nom" required>
+
+<label>Téléphone *</label>
+<input type="tel" name="telephone" id="telephone" required>
+
+<label>Email *</label>
+<input type="email" name="email" id="email" required>
+
+<label>Type d'établissement *</label>
+<select name="type" id="type" required>
+<option value="">-- Sélectionner --</option>
+<option value="Restaurant">Restaurant</option>
+<option value="Café / Salon de thé">Café / Salon de thé</option>
+<option value="Fast-food">Fast-food</option>
+<option value="Boulangerie / Pâtisserie">Boulangerie / Pâtisserie</option>
+<option value="Supermarché / Épicerie">Supermarché / Épicerie</option>
+<option value="Autre">Autre</option>
+</select>
+
+<label>Description de votre structure *</label>
+<textarea name="description" id="description" placeholder="Décrivez brièvement votre établissement, son activité, sa localisation..." required></textarea>
+
+<button type="submit">Envoyer la demande</button>
+</form>
+<div class="success" id="success">
+✅ Merci ! Ta demande a bien été envoyée.
+</div>
+<div class="error" id="error">
+❌ Une erreur est survenue, réessaie svp.
+</div>
+</div>
+</div>
+<!-- Script EmailJS -->
+<script>
+document.getElementById('partenaireForm').addEventListener('submit', function(e) {
+e.preventDefault();
+
+// Récupérer les valeurs du formulaire
+const nom = document.getElementById('nom').value;
+const telephone = document.getElementById('telephone').value;
+const email = document.getElementById('email').value;
+const type = document.getElementById('type').value;
+const description = document.getElementById('description').value;
+
+// Construire le message personnalisé
+const messageComplet = `Je souhaite être partenaire dans CamerEat.
+
+📋 INFORMATIONS DU PARTENAIRE :
+
+Nom complet : ${nom}
+Téléphone : ${telephone}
+Email : ${email}
+Type d'établissement : ${type}
+
+📝 DESCRIPTION DE LA STRUCTURE :
+${description}
+
+---
+Demande envoyée depuis le formulaire Partenaire CamerEat`;
+
+// Préparer les données pour EmailJS
+const templateParams = {
+nom: nom,
+telephone: telephone,
+email: email,
+type: type,
+description: description,
+message: messageComplet
+};
+
+const serviceID = "service_19r78dk";
+const templateID = "template_fezya1h";
+
+// Envoyer l'email
+emailjs.send(serviceID, templateID, templateParams)
+        .then(() => {
+document.getElementById('success').style.display = 'block';
+document.getElementById('partenaireForm').style.display = 'none';
+        }, (err) => {
+document.getElementById('error').style.display = 'block';
+console.error('Erreur EmailJS:', err);
+        });
+    });
+</script>
+</body>
+</html>
